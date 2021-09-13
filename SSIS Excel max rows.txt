@@ -1,0 +1,10 @@
+
+
+First thing to try is to append "IMEX=1" to the end of the connection string in the properties of the connection in SSIS. This sets the conection to "import export mode" and should read more rows and hopefully guess the column size.
+
+The next step is if you have access to the registry settings you can set the value of the "TypeGuessRows" to 0 to ensure that Excel scans all the rows to detemine sample size.
+
+The key is located here
+
+HKEY_LOCAL_MACHINE -> SOFTWARE -> Wow6432Node -> Microsoft -> Jet -> 4.0 ->Engines -> Excel -> TypeGuessRows has the value 0. (It contains 8 by default)
+
